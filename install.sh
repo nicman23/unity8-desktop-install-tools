@@ -27,7 +27,7 @@ function do_install {
 
 function setup_repo {
   ## Make sure gnupg is installed
-  sudo apt install gnupg
+  sudo apt install -y gnupg wget
 
   ## Setup ubports repo
   echo "deb http://repo.ubports.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/ubports.list
@@ -43,7 +43,6 @@ function _install {
 
 function need_lightdm {
   echo "If you get an option to select display manager, please select lightdm!"
-  read -p "Press enter to continue"
   sudo apt install -y lightdm
 }
 
@@ -73,6 +72,7 @@ EOL
   need_lightdm
 }
 
+export DEBIAN_FRONTEND=noninteractive
 
 case $UBUNTU_CODENAME in
   "xenial")

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## We should die on any errors!
-set -e
+#set -e
 
 ## Check if we are on xenial or bionic
 source /etc/os-release
